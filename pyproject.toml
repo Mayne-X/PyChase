@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "pychase"
+version = "0.1.0"
+description = "PyChase - chases down duplicate and structurally similar Python code across your project"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+pychase = "pychase.cli:main"
+
+[tool.pychase]
+threshold = 0.82
+min-lines = 4
+min-nodes = 20
+format = "text"
+shingle-size = 3
+num-perm = 256
+num-bands = 16
+rows-per-band = 16

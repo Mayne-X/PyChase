@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PyChase Report</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #c9d1d9; padding: 24px; }
+h1 { font-size: 24px; margin-bottom: 8px; }
+.summary { color: #8b949e; margin-bottom: 24px; font-size: 14px; }
+.group { background: #161b22; border: 1px solid #30363d; border-radius: 8px; margin-bottom: 16px; overflow: hidden; }
+.group-header { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; cursor: pointer; user-select: none; }
+.group-header:hover { background: #1c2128; }
+.score { color: #58a6ff; font-weight: 600; font-size: 18px; }
+.badge { background: #21262d; color: #8b949e; padding: 2px 8px; border-radius: 12px; font-size: 12px; }
+.group-body { display: none; border-top: 1px solid #30363d; }
+.group-body.open { display: block; }
+.location { display: flex; padding: 8px 16px; border-bottom: 1px solid #21262d; }
+.location:last-child { border-bottom: none; }
+.location-meta { min-width: 280px; flex-shrink: 0; }
+.location-file { color: #58a6ff; font-size: 13px; }
+.location-range { color: #8b949e; font-size: 12px; }
+.location-name { color: #d2a8ff; font-size: 13px; margin-top: 2px; }
+.code { flex: 1; background: #0d1117; border-radius: 4px; padding: 8px; overflow-x: auto; font-family: 'JetBrains Mono', 'Consolas', monospace; font-size: 12px; line-height: 1.5; max-height: 300px; overflow-y: auto; }
+.code .hl { background: #1f6feb33; }
+.pair-detail { margin: 4px 16px 8px; }
+.pair-meta { color: #8b949e; font-size: 12px; margin-bottom: 4px; }
+</style>
+</head>
+<body>
+<h1>PyChase Report</h1>
+<p class="summary">24 duplicate groups (29 pairs) from 69 units</p>
+<div class="group">
+<div class="group-header">
+<span class="score">1.000</span>
+<span class="badge">2 locations &middot; 1 pair</span>
+</div>
+<div class="group-body">
+<div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\01_exact_clones.py</div>
+<div class="location-range">lines 3-5</div>
+<div class="location-name">greet_english</div>
+</div>
+</div><div class="code">def greet_english(name):
+    msg = f&quot;hello {name}&quot;
+    return msg
+</div><div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\01_exact_clones.py</div>
+<div class="location-range">lines 8-10</div>
+<div class="location-name">greet_spanish</div>
+</div>
+</div><div class="code">def greet_spanish(name):
+    msg = f&quot;hello {name}&quot;
+    return msg
+</div>
+</div>
+</div><div class="group">
+<div class="group-header">
+<span class="score">0.786</span>
+<span class="badge">2 locations &middot; 1 pair</span>
+</div>
+<div class="group-body">
+<div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\02_renamed_clones.py</div>
+<div class="location-range">lines 3-8</div>
+<div class="location-name">find_max_price</div>
+</div>
+</div><div class="code">def find_max_price(prices):
+    most_expensive = 0
+    for p in prices:
+        if p &gt; most_expensive:
+            most_expensive = p
+    return most_expensive
+</div><div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\02_renamed_clones.py</div>
+<div class="location-range">lines 11-16</div>
+<div class="location-name">find_min_age</div>
+</div>
+</div><div class="code">def find_min_age(ages):
+    youngest = 999
+    for a in ages:
+        if a &lt; youngest:
+            youngest = a
+    return youngest
+</div>
+</div>
+</div><div class="group">
+<div class="group-header">
+<span class="score">0.620</span>
+<span class="badge">2 locations &middot; 1 pair</span>
+</div>
+<div class="group-body">
+<div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\03_modified_clones.py</div>
+<div class="location-range">lines 3-8</div>
+<div class="location-name">process_orders_a</div>
+</div>
+</div><div class="code">def process_orders_a(orders, rate):
+    total = 0
+    for order in orders:
+        total += order.amount * rate
+    discount = total * 0.1
+    return total - discount
+</div><div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\03_modified_clones.py</div>
+<div class="location-range">lines 11-19</div>
+<div class="location-name">process_orders_b</div>
+</div>
+</div><div class="code">def process_orders_b(orders, rate, coupon):
+    total = 0
+    for order in orders:
+        total += order.amount * rate
+    discount = total * 0.1
+    total -= discount
+    if coupon:
+        total *= 0.95
+    return total
+</div>
+</div>
+</div><div class="group">
+<div class="group-header">
+<span class="score">0.767</span>
+<span class="badge">2 locations &middot; 1 pair</span>
+</div>
+<div class="group-body">
+<div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\04_class_duplicates.py</div>
+<div class="location-range">lines 3-15</div>
+<div class="location-name">Point2D</div>
+</div>
+</div><div class="code">class Point2D:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def move(self, dx, dy):
+        self.x += dx
+        self.y += dy
+
+    def distance(self, other):
+        dx = self.x - other.x
+        dy = self.y - other.y
+        return (dx * dx + dy * dy) ** 0.5
+</div><div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\04_class_duplicates.py</div>
+<div class="location-range">lines 18-33</div>
+<div class="location-name">Point3D</div>
+</div>
+</div><div class="code">class Point3D:
+    def __init__(self, x, y, z):
+        self.x = x
+        self.y = y
+        self.z = z
+
+    def move(self, dx, dy, dz):
+        self.x += dx
+        self.y += dy
+        self.z += dz
+
+    def distance(self, other):
+        dx = self.x - other.x
+        dy = self.y - other.y
+        dz = self.z - other.z
+        return (dx * dx + dy * dy + dz * dz) ** 0.5
+</div>
+</div>
+</div><div class="group">
+<div class="group-header">
+<span class="score">0.857</span>
+<span class="badge">4 locations &middot; 6 pairs</span>
+</div>
+<div class="group-body">
+<div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\04_class_duplicates.py</div>
+<div class="location-range">lines 4-6</div>
+<div class="location-name">Point2D.__init__</div>
+</div>
+</div><div class="code">    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+</div><div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\04_class_duplicates.py</div>
+<div class="location-range">lines 19-22</div>
+<div class="location-name">Point3D.__init__</div>
+</div>
+</div><div class="code">    def __init__(self, x, y, z):
+        self.x = x
+        self.y = y
+        self.z = z
+</div><div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\13_unique_code.py</div>
+<div class="location-range">lines 8-10</div>
+<div class="location-name">ConfigParser.__init__</div>
+</div>
+</div><div class="code">    def __init__(self, path):
+        self.path = path
+        self.data = {}
+</div><div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\13_unique_code.py</div>
+<div class="location-range">lines 36-39</div>
+<div class="location-name">RateLimiter.__init__</div>
+</div>
+</div><div class="code">    def __init__(self, max_calls, window):
+        self.max_calls = max_calls
+        self.window = window
+        self.calls = []
+</div>
+</div>
+</div><div class="group">
+<div class="group-header">
+<span class="score">1.000</span>
+<span class="badge">2 locations &middot; 1 pair</span>
+</div>
+<div class="group-body">
+<div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\04_class_duplicates.py</div>
+<div class="location-range">lines 8-10</div>
+<div class="location-name">Point2D.move</div>
+</div>
+</div><div class="code">    def move(self, dx, dy):
+        self.x += dx
+        self.y += dy
+</div><div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\04_class_duplicates.py</div>
+<div class="location-range">lines 24-27</div>
+<div class="location-name">Point3D.move</div>
+</div>
+</div><div class="code">    def move(self, dx, dy, dz):
+        self.x += dx
+        self.y += dy
+        self.z += dz
+</div>
+</div>
+</div><div class="group">
+<div class="group-header">
+<span class="score">0.650</span>
+<span class="badge">2 locations &middot; 1 pair</span>
+</div>
+<div class="group-body">
+<div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\04_class_duplicates.py</div>
+<div class="location-range">lines 12-15</div>
+<div class="location-name">Point2D.distance</div>
+</div>
+</div><div class="code">    def distance(self, other):
+        dx = self.x - other.x
+        dy = self.y - other.y
+        return (dx * dx + dy * dy) ** 0.5
+</div><div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\04_class_duplicates.py</div>
+<div class="location-range">lines 29-33</div>
+<div class="location-name">Point3D.distance</div>
+</div>
+</div><div class="code">    def distance(self, other):
+        dx = self.x - other.x
+        dy = self.y - other.y
+        dz = self.z - other.z
+        return (dx * dx + dy * dy + dz * dz) ** 0.5
+</div>
+</div>
+</div><div class="group">
+<div class="group-header">
+<span class="score">1.000</span>
+<span class="badge">2 locations &middot; 1 pair</span>
+</div>
+<div class="group-body">
+<div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\05_method_duplicates.py</div>
+<div class="location-range">lines 3-12</div>
+<div class="location-name">ShoppingCart</div>
+</div>
+</div><div class="code">class ShoppingCart:
+    def get_subtotal(self):
+        total = 0
+        for item in self.items:
+            total += item.price * item.qty
+        return total
+
+    def get_tax(self, rate):
+        sub = self.get_subtotal()
+        return sub * rate
+</div><div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\05_method_duplicates.py</div>
+<div class="location-range">lines 15-24</div>
+<div class="location-name">Invoice</div>
+</div>
+</div><div class="code">class Invoice:
+    def compute_total(self):
+        total = 0
+        for line in self.lines:
+            total += line.unit_price * line.count
+        return total
+
+    def compute_vat(self, percent):
+        base = self.compute_total()
+        return base * percent
+</div>
+</div>
+</div><div class="group">
+<div class="group-header">
+<span class="score">1.000</span>
+<span class="badge">2 locations &middot; 1 pair</span>
+</div>
+<div class="group-body">
+<div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\05_method_duplicates.py</div>
+<div class="location-range">lines 4-8</div>
+<div class="location-name">ShoppingCart.get_subtotal</div>
+</div>
+</div><div class="code">    def get_subtotal(self):
+        total = 0
+        for item in self.items:
+            total += item.price * item.qty
+        return total
+</div><div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\05_method_duplicates.py</div>
+<div class="location-range">lines 16-20</div>
+<div class="location-name">Invoice.compute_total</div>
+</div>
+</div><div class="code">    def compute_total(self):
+        total = 0
+        for line in self.lines:
+            total += line.unit_price * line.count
+        return total
+</div>
+</div>
+</div><div class="group">
+<div class="group-header">
+<span class="score">1.000</span>
+<span class="badge">2 locations &middot; 1 pair</span>
+</div>
+<div class="group-body">
+<div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\05_method_duplicates.py</div>
+<div class="location-range">lines 10-12</div>
+<div class="location-name">ShoppingCart.get_tax</div>
+</div>
+</div><div class="code">    def get_tax(self, rate):
+        sub = self.get_subtotal()
+        return sub * rate
+</div><div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\05_method_duplicates.py</div>
+<div class="location-range">lines 22-24</div>
+<div class="location-name">Invoice.compute_vat</div>
+</div>
+</div><div class="code">    def compute_vat(self, percent):
+        base = self.compute_total()
+        return base * percent
+</div>
+</div>
+</div><div class="group">
+<div class="group-header">
+<span class="score">1.000</span>
+<span class="badge">2 locations &middot; 1 pair</span>
+</div>
+<div class="group-body">
+<div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\06_large_clones.py</div>
+<div class="location-range">lines 3-17</div>
+<div class="location-name">build_user_profile_csv</div>
+</div>
+</div><div class="code">def build_user_profile_csv(users):
+    header = &quot;id,name,email,age,country,active&quot;
+    rows = [header]
+    for user in users:
+        status = &quot;yes&quot; if user.active else &quot;no&quot;
+        row = f&quot;{user.id},{user.name},{user.email},{user.age},{user.country},{status}&quot;
+        rows.append(row)
+    for i in range(len(rows)):
+        if i &gt; 0:
+            rows[i] = rows[i].replace(&quot;None&quot;, &quot;&quot;)
+    content = &quot;\n&quot;.join(rows)
+    with open(&quot;users.csv&quot;, &quot;w&quot;) as f:
+        f.write(content)
+    print(f&quot;Exported {len(users)} users&quot;)
+    return len(users)
+</div><div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\06_large_clones.py</div>
+<div class="location-range">lines 20-34</div>
+<div class="location-name">build_product_inventory_csv</div>
+</div>
+</div><div class="code">def build_product_inventory_csv(products):
+    header = &quot;sku,name,price,stock,category,discontinued&quot;
+    rows = [header]
+    for product in products:
+        disc = &quot;yes&quot; if product.discontinued else &quot;no&quot;
+        row = f&quot;{product.sku},{product.name},{product.price},{product.stock},{product.category},{disc}&quot;
+        rows.append(row)
+    for i in range(len(rows)):
+        if i &gt; 0:
+            rows[i] = rows[i].replace(&quot;None&quot;, &quot;&quot;)
+    content = &quot;\n&quot;.join(rows)
+    with open(&quot;products.csv&quot;, &quot;w&quot;) as f:
+        f.write(content)
+    print(f&quot;Exported {len(products)} products&quot;)
+    return len(products)
+</div>
+</div>
+</div><div class="group">
+<div class="group-header">
+<span class="score">1.000</span>
+<span class="badge">2 locations &middot; 1 pair</span>
+</div>
+<div class="group-body">
+<div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\07_async_decorators.py</div>
+<div class="location-range">lines 33-37</div>
+<div class="location-name">fetch_user_data</div>
+</div>
+</div><div class="code">async def fetch_user_data(db, user_id):
+    async with db.connect() as conn:
+        user = await conn.query(&quot;SELECT * FROM users WHERE id = ?&quot;, user_id)
+        orders = await conn.query(&quot;SELECT * FROM orders WHERE user_id = ?&quot;, user_id)
+    return {&quot;user&quot;: user, &quot;orders&quot;: orders}
+</div><div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\07_async_decorators.py</div>
+<div class="location-range">lines 40-44</div>
+<div class="location-name">fetch_product_data</div>
+</div>
+</div><div class="code">async def fetch_product_data(db, product_id):
+    async with db.connect() as conn:
+        product = await conn.query(&quot;SELECT * FROM products WHERE id = ?&quot;, product_id)
+        reviews = await conn.query(&quot;SELECT * FROM reviews WHERE product_id = ?&quot;, product_id)
+    return {&quot;product&quot;: product, &quot;reviews&quot;: reviews}
+</div>
+</div>
+</div><div class="group">
+<div class="group-header">
+<span class="score">0.762</span>
+<span class="badge">2 locations &middot; 1 pair</span>
+</div>
+<div class="group-body">
+<div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\07_async_decorators.py</div>
+<div class="location-range">lines 47-58</div>
+<div class="location-name">classify_http</div>
+</div>
+</div><div class="code">def classify_http(status):
+    match status:
+        case 200 | 201 | 204:
+            return &quot;success&quot;
+        case 301 | 302 | 307:
+            return &quot;redirect&quot;
+        case 400 | 401 | 403 | 404:
+            return &quot;client_error&quot;
+        case 500 | 502 | 503:
+            return &quot;server_error&quot;
+        case _:
+            return &quot;unknown&quot;
+</div><div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\07_async_decorators.py</div>
+<div class="location-range">lines 61-70</div>
+<div class="location-name">classify_exit</div>
+</div>
+</div><div class="code">def classify_exit(code):
+    match code:
+        case 0:
+            return &quot;ok&quot;
+        case 1 | 2:
+            return &quot;error&quot;
+        case 130 | 131:
+            return &quot;interrupted&quot;
+        case _:
+            return &quot;unknown&quot;
+</div>
+</div>
+</div><div class="group">
+<div class="group-header">
+<span class="score">0.573</span>
+<span class="badge">2 locations &middot; 1 pair</span>
+</div>
+<div class="group-body">
+<div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\08_realworld_billing.py</div>
+<div class="location-range">lines 3-31</div>
+<div class="location-name">SubscriptionManager</div>
+</div>
+</div><div class="code">class SubscriptionManager:
+    def calculate_monthly_charge(self, plan, days_active):
+        daily_rate = plan.monthly_price / 30
+        charge = daily_rate * days_active
+        if plan.has_discount:
+            charge *= 1 - plan.discount_rate
+        if charge &lt; 0:
+            charge = 0
+        return round(charge, 2)
+
+    def generate_invoice(self, customer, period_start, period_end):
+        lines = []
+        for sub in customer.subscriptions:
+            days = (period_end - period_start).days
+            charge = self.calculate_monthly_charge(sub.plan, days)
+            lines.append({
+                &quot;description&quot;: sub.plan.name,
+                &quot;period_start&quot;: period_start,
+                &quot;period_end&quot;: period_end,
+                &quot;amount&quot;: charge,
+            })
+        total = sum(line[&quot;amount&quot;] for line in lines)
+        invoice = {
+            &quot;customer&quot;: customer.name,
+            &quot;lines&quot;: lines,
+            &quot;total&quot;: total,
+            &quot;due_date&quot;: period_end,
+        }
+        return invoice
+</div><div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\08_realworld_billing.py</div>
+<div class="location-range">lines 61-89</div>
+<div class="location-name">InvoiceManager</div>
+</div>
+</div><div class="code">class InvoiceManager:
+    def compute_credit_note(self, invoice, refund_items):
+        total_refund = 0
+        for item in refund_items:
+            total_refund += item.amount * item.quantity
+        credit = min(total_refund, invoice.total)
+        if invoice.has_discount:
+            credit *= 1 - invoice.discount_rate
+        if credit &lt; 0:
+            credit = 0
+        return round(credit, 2)
+
+    def build_credit_memo(self, customer, credit_total):
+        lines = []
+        for entry in customer.credit_entries:
+            amount = entry.value * entry.ratio
+            lines.append({
+                &quot;description&quot;: entry.reason,
+                &quot;credit_date&quot;: entry.date,
+                &quot;amount&quot;: amount,
+            })
+        total = sum(line[&quot;amount&quot;] for line in lines)
+        memo = {
+            &quot;customer&quot;: customer.name,
+            &quot;lines&quot;: lines,
+            &quot;total&quot;: total,
+            &quot;valid_until&quot;: entry.date,
+        }
+        return memo
+</div>
+</div>
+</div><div class="group">
+<div class="group-header">
+<span class="score">0.602</span>
+<span class="badge">2 locations &middot; 1 pair</span>
+</div>
+<div class="group-body">
+<div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\08_realworld_billing.py</div>
+<div class="location-range">lines 13-31</div>
+<div class="location-name">SubscriptionManager.generate_invoice</div>
+</div>
+</div><div class="code">    def generate_invoice(self, customer, period_start, period_end):
+        lines = []
+        for sub in customer.subscriptions:
+            days = (period_end - period_start).days
+            charge = self.calculate_monthly_charge(sub.plan, days)
+            lines.append({
+                &quot;description&quot;: sub.plan.name,
+                &quot;period_start&quot;: period_start,
+                &quot;period_end&quot;: period_end,
+                &quot;amount&quot;: charge,
+            })
+        total = sum(line[&quot;amount&quot;] for line in lines)
+        invoice = {
+            &quot;customer&quot;: customer.name,
+            &quot;lines&quot;: lines,
+            &quot;total&quot;: total,
+            &quot;due_date&quot;: period_end,
+        }
+        return invoice
+</div><div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\08_realworld_billing.py</div>
+<div class="location-range">lines 73-89</div>
+<div class="location-name">InvoiceManager.build_credit_memo</div>
+</div>
+</div><div class="code">    def build_credit_memo(self, customer, credit_total):
+        lines = []
+        for entry in customer.credit_entries:
+            amount = entry.value * entry.ratio
+            lines.append({
+                &quot;description&quot;: entry.reason,
+                &quot;credit_date&quot;: entry.date,
+                &quot;amount&quot;: amount,
+            })
+        total = sum(line[&quot;amount&quot;] for line in lines)
+        memo = {
+            &quot;customer&quot;: customer.name,
+            &quot;lines&quot;: lines,
+            &quot;total&quot;: total,
+            &quot;valid_until&quot;: entry.date,
+        }
+        return memo
+</div>
+</div>
+</div><div class="group">
+<div class="group-header">
+<span class="score">0.835</span>
+<span class="badge">2 locations &middot; 1 pair</span>
+</div>
+<div class="group-body">
+<div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\09_realworld_validation.py</div>
+<div class="location-range">lines 6-19</div>
+<div class="location-name">validate_user_data</div>
+</div>
+</div><div class="code">def validate_user_data(data):
+    errors = []
+    if not data.get(&quot;email&quot;):
+        errors.append(&quot;email is required&quot;)
+    elif not re.match(r&quot;[^@]+@[^@]+\.[^@]+&quot;, data[&quot;email&quot;]):
+        errors.append(&quot;invalid email format&quot;)
+    if not data.get(&quot;name&quot;) or len(data[&quot;name&quot;]) &lt; 2:
+        errors.append(&quot;name must be at least 2 characters&quot;)
+    if data.get(&quot;age&quot;) is not None:
+        if not isinstance(data[&quot;age&quot;], int) or data[&quot;age&quot;] &lt; 18:
+            errors.append(&quot;age must be 18 or older&quot;)
+    if data.get(&quot;phone&quot;) and not re.match(r&quot;^\+?1?\d{10}$&quot;, data[&quot;phone&quot;]):
+        errors.append(&quot;invalid phone number&quot;)
+    return errors
+</div><div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\09_realworld_validation.py</div>
+<div class="location-range">lines 22-35</div>
+<div class="location-name">validate_product_data</div>
+</div>
+</div><div class="code">def validate_product_data(data):
+    errors = []
+    if not data.get(&quot;sku&quot;):
+        errors.append(&quot;sku is required&quot;)
+    elif not re.match(r&quot;^[A-Z]{2}-\d{4}$&quot;, data[&quot;sku&quot;]):
+        errors.append(&quot;invalid sku format&quot;)
+    if not data.get(&quot;title&quot;) or len(data[&quot;title&quot;]) &lt; 3:
+        errors.append(&quot;title must be at least 3 characters&quot;)
+    if data.get(&quot;price&quot;) is not None:
+        if not isinstance(data[&quot;price&quot;], (int, float)) or data[&quot;price&quot;] &lt;= 0:
+            errors.append(&quot;price must be positive&quot;)
+    if data.get(&quot;upc&quot;) and not re.match(r&quot;^\d{12}$&quot;, data[&quot;upc&quot;]):
+        errors.append(&quot;invalid upc format&quot;)
+    return errors
+</div>
+</div>
+</div><div class="group">
+<div class="group-header">
+<span class="score">1.000</span>
+<span class="badge">2 locations &middot; 1 pair</span>
+</div>
+<div class="group-body">
+<div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\10_nested_blocks.py</div>
+<div class="location-range">lines 3-11</div>
+<div class="location-name">process_dataframe_a</div>
+</div>
+</div><div class="code">def process_dataframe_a(df):
+    results = []
+    for col in df.columns:
+        if col.startswith(&quot;feature_&quot;):
+            values = [x * 2 for x in df[col] if x is not None]
+            mean = sum(values) / len(values) if values else 0
+            std = (sum((x - mean) ** 2 for x in values) / len(values)) ** 0.5 if values else 0
+            results.append({&quot;col&quot;: col, &quot;mean&quot;: mean, &quot;std&quot;: std})
+    return results
+</div><div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\10_nested_blocks.py</div>
+<div class="location-range">lines 14-22</div>
+<div class="location-name">process_dataframe_b</div>
+</div>
+</div><div class="code">def process_dataframe_b(df):
+    results = []
+    for col in df.columns:
+        if col.startswith(&quot;metric_&quot;):
+            values = [x * 2 for x in df[col] if x is not None]
+            mean = sum(values) / len(values) if values else 0
+            std = (sum((x - mean) ** 2 for x in values) / len(values)) ** 0.5 if values else 0
+            results.append({&quot;col&quot;: col, &quot;mean&quot;: mean, &quot;std&quot;: std})
+    return results
+</div>
+</div>
+</div><div class="group">
+<div class="group-header">
+<span class="score">1.000</span>
+<span class="badge">2 locations &middot; 1 pair</span>
+</div>
+<div class="group-body">
+<div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\10_nested_blocks.py</div>
+<div class="location-range">lines 25-36</div>
+<div class="location-name">outer_function_one</div>
+</div>
+</div><div class="code">def outer_function_one(data):
+    def inner_transform(item):
+        return {&quot;key&quot;: item.id, &quot;value&quot;: item.data * 2}
+
+    def inner_filter(item):
+        return item.active and item.data &gt; 0
+
+    results = []
+    for item in data:
+        if inner_filter(item):
+            results.append(inner_transform(item))
+    return results
+</div><div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\10_nested_blocks.py</div>
+<div class="location-range">lines 39-50</div>
+<div class="location-name">outer_function_two</div>
+</div>
+</div><div class="code">def outer_function_two(records):
+    def inner_map(rec):
+        return {&quot;key&quot;: rec.uid, &quot;value&quot;: rec.payload * 2}
+
+    def inner_filter(rec):
+        return rec.enabled and rec.payload &gt; 0
+
+    results = []
+    for rec in records:
+        if inner_filter(rec):
+            results.append(inner_map(rec))
+    return results
+</div>
+</div>
+</div><div class="group">
+<div class="group-header">
+<span class="score">0.971</span>
+<span class="badge">2 locations &middot; 1 pair</span>
+</div>
+<div class="group-body">
+<div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\11_mixed_duplicates.py</div>
+<div class="location-range">lines 37-42</div>
+<div class="location-name">fetch_and_cache</div>
+</div>
+</div><div class="code">def fetch_and_cache(url, cache):
+    if url in cache:
+        return cache[url]
+    data = fetch(url)
+    cache[url] = data
+    return data
+</div><div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\11_mixed_duplicates.py</div>
+<div class="location-range">lines 45-50</div>
+<div class="location-name">compute_and_cache</div>
+</div>
+</div><div class="code">def compute_and_cache(key, cache, compute_fn):
+    if key in cache:
+        return cache[key]
+    data = compute_fn(key)
+    cache[key] = data
+    return data
+</div>
+</div>
+</div><div class="group">
+<div class="group-header">
+<span class="score">0.952</span>
+<span class="badge">2 locations &middot; 1 pair</span>
+</div>
+<div class="group-body">
+<div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\14_big_compare.py</div>
+<div class="location-range">lines 9-27</div>
+<div class="location-name">generate_monthly_report_standard</div>
+</div>
+</div><div class="code">def generate_monthly_report_standard(data, start_date, end_date):
+    &quot;&quot;&quot;Generate a monthly sales report grouped by category.&quot;&quot;&quot;
+    buffer = io.StringIO()
+    writer = csv.writer(buffer)
+    writer.writerow([&quot;category&quot;, &quot;total_sales&quot;, &quot;order_count&quot;, &quot;avg_value&quot;, &quot;top_product&quot;])
+    period_data = [r for r in data if start_date &lt;= r.date &lt;= end_date]
+    grouped = defaultdict(lambda: {&quot;sales&quot;: 0, &quot;count&quot;: 0, &quot;products&quot;: defaultdict(int)})
+    for record in period_data:
+        g = grouped[record.category]
+        g[&quot;sales&quot;] += record.amount
+        g[&quot;count&quot;] += 1
+        g[&quot;products&quot;][record.product] += record.quantity
+    for cat, stats in sorted(grouped.items()):
+        top_product = max(stats[&quot;products&quot;], key=stats[&quot;products&quot;].get)
+        avg = stats[&quot;sales&quot;] / stats[&quot;count&quot;] if stats[&quot;count&quot;] else 0
+        writer.writerow([cat, round(stats[&quot;sales&quot;], 2), stats[&quot;count&quot;], round(avg, 2), top_product])
+    report = buffer.getvalue()
+    buffer.close()
+    return report
+</div><div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\14_big_compare.py</div>
+<div class="location-range">lines 30-48</div>
+<div class="location-name">generate_weekly_report_standard</div>
+</div>
+</div><div class="code">def generate_weekly_report_standard(data, start_date, end_date):
+    &quot;&quot;&quot;Generate a weekly inventory report grouped by warehouse.&quot;&quot;&quot;
+    buffer = io.StringIO()
+    writer = csv.writer(buffer)
+    writer.writerow([&quot;warehouse&quot;, &quot;total_value&quot;, &quot;item_count&quot;, &quot;avg_cost&quot;, &quot;top_item&quot;])
+    period_data = [r for r in data if start_date &lt;= r.date &lt;= end_date]
+    grouped = defaultdict(lambda: {&quot;value&quot;: 0, &quot;count&quot;: 0, &quot;items&quot;: defaultdict(int)})
+    for record in period_data:
+        g = grouped[record.warehouse]
+        g[&quot;value&quot;] += record.cost * record.quantity
+        g[&quot;count&quot;] += 1
+        g[&quot;items&quot;][record.sku] += record.quantity
+    for wh, stats in sorted(grouped.items()):
+        top_item = max(stats[&quot;items&quot;], key=stats[&quot;items&quot;].get)
+        avg = stats[&quot;value&quot;] / stats[&quot;count&quot;] if stats[&quot;count&quot;] else 0
+        writer.writerow([wh, round(stats[&quot;value&quot;], 2), stats[&quot;count&quot;], round(avg, 2), top_item])
+    report = buffer.getvalue()
+    buffer.close()
+    return report
+</div>
+</div>
+</div><div class="group">
+<div class="group-header">
+<span class="score">0.734</span>
+<span class="badge">2 locations &middot; 1 pair</span>
+</div>
+<div class="group-body">
+<div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\14_big_compare.py</div>
+<div class="location-range">lines 51-86</div>
+<div class="location-name">DataPipelineV1</div>
+</div>
+</div><div class="code">class DataPipelineV1:
+    &quot;&quot;&quot;A complex ETL pipeline — unique structure, no duplicates.&quot;&quot;&quot;
+
+    def __init__(self, source, transforms=None):
+        self.source = source
+        self.transforms = transforms or []
+        self.state = {&quot;processed&quot;: 0, &quot;errors&quot;: 0, &quot;skipped&quot;: 0}
+
+    def run(self):
+        raw = self._extract()
+        cleaned = self._clean(raw)
+        for transform in self.transforms:
+            cleaned = transform(cleaned)
+        self._load(cleaned)
+        return self.state
+
+    def _extract(self):
+        with open(self.source) as f:
+            return [json.loads(line) for line in f if line.strip()]
+
+    def _clean(self, rows):
+        valid = []
+        for row in rows:
+            try:
+                row = {k: v.strip() if isinstance(v, str) else v for k, v in row.items()}
+                if all(k in row for k in (&quot;id&quot;, &quot;type&quot;, &quot;timestamp&quot;)):
+                    valid.append(row)
+                    self.state[&quot;processed&quot;] += 1
+                else:
+                    self.state[&quot;skipped&quot;] += 1
+            except Exception:
+                self.state[&quot;errors&quot;] += 1
+        return valid
+
+    def _load(self, data):
+        pass
+</div><div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\14_big_compare.py</div>
+<div class="location-range">lines 89-125</div>
+<div class="location-name">DataPipelineV2</div>
+</div>
+</div><div class="code">class DataPipelineV2:
+    &quot;&quot;&quot;Another ETL pipeline — structurally similar to V1? Test finds out.&quot;&quot;&quot;
+
+    def __init__(self, config):
+        self.input_path = config.get(&quot;input&quot;)
+        self.output_path = config.get(&quot;output&quot;)
+        self.filters = config.get(&quot;filters&quot;, [])
+        self.metrics = {&quot;total&quot;: 0, &quot;failures&quot;: 0, &quot;omissions&quot;: 0}
+
+    def execute(self):
+        records = self._read()
+        filtered = self._filter(records)
+        for fn in self.filters:
+            filtered = fn(filtered)
+        self._write(filtered)
+        return self.metrics
+
+    def _read(self):
+        with open(self.input_path) as f:
+            return [json.loads(line) for line in f if line.strip()]
+
+    def _filter(self, records):
+        good = []
+        for rec in records:
+            try:
+                rec = {k: v.strip() if isinstance(v, str) else v for k, v in rec.items()}
+                if &quot;id&quot; in rec and &quot;type&quot; in rec:
+                    good.append(rec)
+                    self.metrics[&quot;total&quot;] += 1
+                else:
+                    self.metrics[&quot;omissions&quot;] += 1
+            except Exception:
+                self.metrics[&quot;failures&quot;] += 1
+        return good
+
+    def _write(self, data):
+        pass
+</div>
+</div>
+</div><div class="group">
+<div class="group-header">
+<span class="score">1.000</span>
+<span class="badge">2 locations &middot; 1 pair</span>
+</div>
+<div class="group-body">
+<div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\14_big_compare.py</div>
+<div class="location-range">lines 59-65</div>
+<div class="location-name">DataPipelineV1.run</div>
+</div>
+</div><div class="code">    def run(self):
+        raw = self._extract()
+        cleaned = self._clean(raw)
+        for transform in self.transforms:
+            cleaned = transform(cleaned)
+        self._load(cleaned)
+        return self.state
+</div><div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\14_big_compare.py</div>
+<div class="location-range">lines 98-104</div>
+<div class="location-name">DataPipelineV2.execute</div>
+</div>
+</div><div class="code">    def execute(self):
+        records = self._read()
+        filtered = self._filter(records)
+        for fn in self.filters:
+            filtered = fn(filtered)
+        self._write(filtered)
+        return self.metrics
+</div>
+</div>
+</div><div class="group">
+<div class="group-header">
+<span class="score">1.000</span>
+<span class="badge">2 locations &middot; 1 pair</span>
+</div>
+<div class="group-body">
+<div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\14_big_compare.py</div>
+<div class="location-range">lines 67-69</div>
+<div class="location-name">DataPipelineV1._extract</div>
+</div>
+</div><div class="code">    def _extract(self):
+        with open(self.source) as f:
+            return [json.loads(line) for line in f if line.strip()]
+</div><div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\14_big_compare.py</div>
+<div class="location-range">lines 106-108</div>
+<div class="location-name">DataPipelineV2._read</div>
+</div>
+</div><div class="code">    def _read(self):
+        with open(self.input_path) as f:
+            return [json.loads(line) for line in f if line.strip()]
+</div>
+</div>
+</div><div class="group">
+<div class="group-header">
+<span class="score">0.680</span>
+<span class="badge">2 locations &middot; 1 pair</span>
+</div>
+<div class="group-body">
+<div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\14_big_compare.py</div>
+<div class="location-range">lines 71-83</div>
+<div class="location-name">DataPipelineV1._clean</div>
+</div>
+</div><div class="code">    def _clean(self, rows):
+        valid = []
+        for row in rows:
+            try:
+                row = {k: v.strip() if isinstance(v, str) else v for k, v in row.items()}
+                if all(k in row for k in (&quot;id&quot;, &quot;type&quot;, &quot;timestamp&quot;)):
+                    valid.append(row)
+                    self.state[&quot;processed&quot;] += 1
+                else:
+                    self.state[&quot;skipped&quot;] += 1
+            except Exception:
+                self.state[&quot;errors&quot;] += 1
+        return valid
+</div><div class="location">
+<div class="location-meta">
+<div class="location-file">C:\Users\ankit\OneDrive\Desktop\blockchain\github\pychase\demo\14_big_compare.py</div>
+<div class="location-range">lines 110-122</div>
+<div class="location-name">DataPipelineV2._filter</div>
+</div>
+</div><div class="code">    def _filter(self, records):
+        good = []
+        for rec in records:
+            try:
+                rec = {k: v.strip() if isinstance(v, str) else v for k, v in rec.items()}
+                if &quot;id&quot; in rec and &quot;type&quot; in rec:
+                    good.append(rec)
+                    self.metrics[&quot;total&quot;] += 1
+                else:
+                    self.metrics[&quot;omissions&quot;] += 1
+            except Exception:
+                self.metrics[&quot;failures&quot;] += 1
+        return good
+</div>
+</div>
+</div>
+<script>
+document.querySelectorAll('.group-header').forEach(h => {
+h.addEventListener('click', () => {
+const body = h.nextElementSibling;
+body.classList.toggle('open');
+});
+});
+</script>
+</body>
+</html>
