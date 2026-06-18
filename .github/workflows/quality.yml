@@ -1,0 +1,37 @@
+name: Scorecard
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  analysis:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run PyChase on itself
+        run: |
+          echo "## Self-Analysis Results" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          python -m pychase --threshold 0.7 pychase/ >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Generate code quality report
+        run: |
+          python -m pychase --format html --output quality-report.html .
+          echo "## Quality Report" >> $GITHUB_STEP_SUMMARY
+          echo "HTML report generated as artifact" >> $GITHUB_STEP_SUMMARY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: quality-report
+          path: quality-report.html

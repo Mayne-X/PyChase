@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Run demo test suite
+        run: |
+          python -m pychase --threshold 0.55 --min-lines 2 --min-nodes 10 demo/
+          python -m pychase --threshold 0.7 demo/
+
+      - name: Test JSON output
+        run: python -m pychase --json --threshold 0.5 demo/ | python -m json.tool > /dev/null
+
+      - name: Test CSV output
+        run: python -m pychase --csv --threshold 0.5 demo/ > /dev/null
+
+      - name: Test HTML report generation
+        run: python -m pychase --format html --output report.html demo/
+
+      - name: Verify no false positives on unique code
+        run: |
+          result=$(python -m pychase --json --threshold 0.7 demo/13_unique_code.py)
+          groups=$(echo "$result" | python -c "import sys,json; print(len(json.load(sys.stdin)['groups']))")
+          echo "False positive groups on unique code file: $groups"
+
+      - name: Test self-analysis
+        run: python -m pychase --threshold 0.7 pychase/
