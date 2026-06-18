@@ -7,7 +7,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: PyChase
+    environment:
+      name: PyChase
+      url: https://pypi.org/project/pychase
     permissions:
       id-token: write
 
