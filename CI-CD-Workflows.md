@@ -7,7 +7,7 @@ PyChase ships with three ready-to-use **GitHub Actions workflows** in `.github/w
 | Workflow | File | Trigger | Purpose |
 |---|---|---|---|
 | **CI** | `ci.yml` | Push / PR to `master` | Tests PyChase against the full demo suite on Python 3.10–3.13 |
-| **Publish** | `publish.yml` | GitHub Release published | Builds and uploads PyChase to PyPI |
+| **Publish** | `workflow.yml` | GitHub Release published | Builds and uploads PyChase to PyPI |
 | **Quality** | `quality.yml` | Push / PR to `master` | Self-analysis: runs PyChase on its own source code and generates a quality report |
 
 ---
