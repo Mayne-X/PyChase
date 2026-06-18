@@ -291,3 +291,7 @@ SonarQube is the enterprise standard but comes with heavy infrastructure demands
 ## License
 
 MIT
+
+
+## Related Projects
+- [Awesome Rust CLI Tools](https://github.com/Mayne-X/Awesome-Rust-Cli-Tools) - A curated list of production-ready Rust command-line utilities.
