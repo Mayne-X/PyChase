@@ -90,7 +90,7 @@ pip install pychase
 
 Or clone and install from source:
 ```bash
-git clone https://github.com/yourname/pychase.git
+git clone https://github.com/Mayne-X/PyChase
 cd pychase
 pip install .
 ```
