@@ -1,6 +1,6 @@
 [build-system]
 requires = ["setuptools>=64"]
-build-backend = "setuptools.backends._legacy:_Backend"
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "pychase"
@@ -34,6 +34,9 @@ Issues = "https://github.com/Mayne-X/PyChase/issues"
 
 [project.scripts]
 pychase = "pychase.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["pychase*"]
 
 [tool.pychase]
 threshold = 0.82
